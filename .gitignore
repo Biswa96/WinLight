@@ -1,0 +1,9 @@
+# gitignore file for WinLight project
+
+# Download files
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.json
+*.JSON
