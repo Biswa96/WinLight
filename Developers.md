@@ -27,21 +27,54 @@ oemid=innotek%20GmbH&ossku=Professional&rver=2&sc-mode=0&smBiosDm=VirtualBox&tl=
 waasBldFlt=1&waasCfgExp=1&waasCfgSet=1&waasRetail=1&waasRing=1
 ```
 
-Yes, Windows 10 collects :)
-
 * In the scripts, the link is shortened as
-`https://arc.msn.com/v3/Delivery/Placement?&pid=338387&fmt=json&cdm=1&ctry=US`.
+`https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=338387`.
+
+# Internals
 
 * The `pid` field comes from `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager`
 registry values. See the [sample registry file](ContentDeliveryManager.reg.ini).
 
-# Implementations
+* The URL string is constructed in `ContentManagementSDK` file. See these DLL files:
 
-See these DLL files:
-
+<!-- -->
+    
     C:\Windows\System32\ContentDeliveryManager.Utilities.dll
     C:\Windows\SystemApps\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\ContentDeliveryManager.Background.dll
     C:\Windows\SystemApps\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\ContentManagementSDK.dll
 
-The URL string is constructed in `ContentManagementSDK` file. More to be discovered...
+## List of Subscription IDs
+
+The same link also downloads Store Apps recommendations, Start Menu Tiles icon etc.
+From `CreativeFramework::TargetedContent::GetAdUnitIdFromSubscriptionId` arrays:
+
+|        Subscription ID         |  Internal Ad ID  |  Public Ad ID  |
+|:------------------------------:|:----------------:|:--------------:|
+|  ActionCenter                  |  310092           |  310091       |
+|  ApiTest                       |  280812           |  280812       |
+|  DynamicLayouts                |  314558           |  314559       |
+|  MinuteZeroOffers              |  310094           |  310093       |
+|  OobeOffers                    |  314566           |  314567       |
+|  ShareAppSuggestions           |  280814           |  280815       |
+|  SilentInstalledApps           |  202913           |  202914       |
+|  StartSuggestions              |  338381           |  338388       |
+|  PeopleAppSuggestions          |  314562           |  314563       |
+|  OneDriveLocal                 |  280797           |  280811       |
+|  OneDriveSync                  |  280817           |  280810       |
+|  OneDriveDocuments             |  88000162         |  88000161     |
+|  OneDriveDesktop               |  88000164         |  88000163     |
+|  OneDrivePictures              |  88000166         |  88000165     |
+|  LockScreen*                   |  338380           |  338387*      |
+|  WindowsTip                    |  338382           |  338389       |
+|  Settings                      |  338386           |  338393       |
+|  Signals                       |  346480           |  346481       |
+|  SettingsHome                  |  353697           |  353696       |
+|  SettingsValueBanner           |  88000106         |  88000105     |
+|  SettingsAccountsYourInfo      |  353695           |  353694       |
+|  Timeline                      |  353699           |  353698       |
+|  AppDefaultsEdgeEnlightenment  |  88000044         |  88000045     |
+
+
+
+More to be discovered...
 
