@@ -9,7 +9,12 @@ import os
 # Set environment variables
 ImageUrl="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData"
 JsonFile="cache.json"
-JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&pid=338387&fmt=json&cdm=1&ctry=US"
+
+#JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=209567"
+#JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=279978"
+#JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=338380"
+JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=338387"
+
 SearchPattern="(?<=imageFileData/).*?(?=\?ver)"
 HttpHeader= {
     'Accept-Encoding': 'gzip, deflate',

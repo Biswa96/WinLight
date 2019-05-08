@@ -5,7 +5,12 @@ set -e
 HttpHeader="Accept-Language:en-US,en;q=0.9"
 ImageUrl="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData"
 JsonFile="cache.json"
-JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&pid=338387&fmt=json&cdm=1&ctry=US"
+
+#JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=209567"
+#JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=279978"
+#JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=338380"
+JsonUrl="https://arc.msn.com/v3/Delivery/Placement?&fmt=json&cdm=1&ctry=US&pid=338387"
+
 SearchPattern="(?<=imageFileData/).*?(?=\?ver)"
 UserAgent="WindowsShellClient/9.0.40929.0 (Windows)"
 
