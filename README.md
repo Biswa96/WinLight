@@ -35,12 +35,6 @@ For Chromium and its derivatives, use any JSON viewer or formatter extensions.
 
 Interested in what happens behind the scene? See [Developers](Developers.md) page.
 
-# Caveats
-
-The python script fails in Python3 in Windows due to Unicode encoding in JSON file.
-Linux Distributions do not have this issue. Use Python2 in Windows.
-Any suggestions are welcome.
-
 # License
 
 WinLight is licensed under the GNU General Public License v3. A full
