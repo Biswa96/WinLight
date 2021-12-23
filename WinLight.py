@@ -25,22 +25,22 @@ HttpHeader= {
 
 # Download JSON file
 Respose = requests.get(JsonUrl, headers=HttpHeader)
-with open(JsonFile,'wb') as file:
+with open(JsonFile, 'wb') as file:
     file.write(Respose.content)
 
 # Remove back slashes
-for line in fileinput.input(JsonFile, inplace=True):
+for line in fileinput.input(JsonFile, inplace=True, encoding="utf-8"):
     print(line.replace("\\", "")),
 
 # Remove opening quotes
-for line in fileinput.input(JsonFile, inplace=True):
+for line in fileinput.input(JsonFile, inplace=True, encoding="utf-8"):
     print(line.replace("\"{", "{")),
 
 # Remove closing quotes
-for line in fileinput.input(JsonFile, inplace=True):
+for line in fileinput.input(JsonFile, inplace=True, encoding="utf-8"):
     print(line.replace("}\"", "}")),
 
-with open(JsonFile, 'r') as file:
+with open(JsonFile, 'r', encoding="utf-8") as file:
     content = file.read()
 
 # Get the hashes from links and download
